@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Base & Utilities using Tailwind directives */
+@layer base {
+  body {
+    @apply bg-[#0a0a1a] text-slate-100 font-body antialiased min-h-screen selection:bg-indigo-500 selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight font-bold;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply bg-[#141432]/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl transition-all duration-300 hover:border-white/20 hover:shadow-indigo-500/10;
+  }
+
+  /* Custom Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed outline-none select-none;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply bg-white/5 text-slate-200 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:text-white;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-500 to-rose-600 text-white hover:shadow-lg hover:shadow-red-500/25 hover:-translate-y-0.5;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs rounded-lg;
+  }
+
+  .btn-lg {
+    @apply px-8 py-3.5 text-base rounded-xl;
+  }
+
+  .btn-icon {
+    @apply p-2 w-9 h-9 rounded-lg;
+  }
+
+  /* Form Elements */
+  .form-group {
+    @apply mb-5;
+  }
+
+  .form-label {
+    @apply block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-200;
+  }
+
+  .form-select option {
+    @apply bg-[#111128] text-slate-100;
+  }
+
+  .form-error {
+    @apply text-red-400 text-xs mt-1.5 font-medium;
+  }
+
+  /* Status Badges */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold capitalize tracking-wide;
+  }
+
+  .badge-new { @apply bg-blue-500/15 text-blue-400 border border-blue-500/20; }
+  .badge-contacted { @apply bg-purple-500/15 text-purple-400 border border-purple-500/20; }
+  .badge-qualified { @apply bg-amber-500/15 text-amber-400 border border-amber-500/20; }
+  .badge-proposal { @apply bg-orange-500/15 text-orange-400 border border-orange-500/20; }
+  .badge-won { @apply bg-emerald-500/15 text-emerald-400 border border-emerald-500/20; }
+  .badge-lost { @apply bg-red-500/15 text-red-400 border border-red-500/20; }
+
+  .badge-admin { @apply bg-indigo-500/15 text-indigo-400 border border-indigo-500/20; }
+  .badge-member { @apply bg-emerald-500/15 text-emerald-400 border border-emerald-500/20; }
+
+  /* Table styling */
+  .table-container {
+    @apply overflow-x-auto rounded-2xl border border-white/10 bg-[#111128]/50 backdrop-blur-md;
+  }
+
+  .table {
+    @apply w-full text-left border-collapse;
+  }
+
+  .table th {
+    @apply px-4 py-3.5 text-xs font-bold uppercase tracking-wider text-slate-400 bg-white/[0.02] border-b border-white/10;
+  }
+
+  .table td {
+    @apply px-4 py-3.5 text-sm text-slate-300 border-b border-white/10 transition-colors;
+  }
+
+  .table tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .table tr:hover td {
+    @apply bg-white/[0.03];
+  }
+}
+
+/* Animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  @apply w-8 h-8 border-4 border-white/10 border-t-indigo-500 rounded-full animate-spin;
+}
+
+.spinner-sm {
+  @apply w-4 h-4 border-2;
+}
+
+.loading-screen {
+  @apply flex flex-col items-center justify-center min-h-[300px] gap-3 text-slate-400 text-sm;
+}
