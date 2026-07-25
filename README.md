@@ -25,6 +25,12 @@ A full-stack lead management application built for small sales teams. Capture le
 
 ---
 
+## AI Usage Disclosure
+
+This project was developed with AI assistance (using Advanced Agentic Coding for scaffolding initial boilerplate, optimizing Tailwind layout structures, and formatting test suites). All architectural design choices, data modeling, role-based security boundaries (Admin vs. Member), edge-case validation logic, and codebase assessment documents were actively guided, customized, and verified for accuracy and performance.
+
+---
+
 ## Setup Instructions
 
 ### Prerequisites
