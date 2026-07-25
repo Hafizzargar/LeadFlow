@@ -11,9 +11,15 @@ const submitLead = async (req, res, next) => {
   try {
     const { name, email, phone, company, source } = req.body;
 
+    // Prevent duplicate lead submission with same email
+    const existingLead = await Lead.findOne({ email: email.toLowerCase() });
+    if (existingLead) {
+      return ApiResponse.badRequest(res, 'A lead with this email address has already been submitted.');
+    }
+
     const lead = await Lead.create({
       name,
-      email,
+      email: email.toLowerCase(),
       phone,
       company,
       source: source || 'website',

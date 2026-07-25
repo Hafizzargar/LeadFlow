@@ -114,9 +114,15 @@ const createLead = async (req, res, next) => {
   try {
     const { name, email, phone, company, source, status, assignedTo } = req.body;
 
+    // Check for duplicate email
+    const existingLead = await Lead.findOne({ email: email.toLowerCase() });
+    if (existingLead) {
+      return ApiResponse.badRequest(res, 'A lead with this email address already exists.');
+    }
+
     const lead = await Lead.create({
       name,
-      email,
+      email: email.toLowerCase(),
       phone,
       company,
       source,
